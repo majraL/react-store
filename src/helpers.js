@@ -19,3 +19,6 @@ export function slugify(text) {
     .replace(/^-+/, "")
     .replace(/-+$/, "");
 }
+export function cl(x) {
+  return console.log(x);
+}

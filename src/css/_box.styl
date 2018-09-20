@@ -1,0 +1,20 @@
+.box
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  &-main
+    display: flex
+    margin: 20px
+  > div
+    flex: 1 1 33.33%
+    border-bottom: 1px solid #000
+    &.basket,
+    &.store
+      padding: 0 15px      
+    &.store
+      border-right: 3px solid black
+    &.btn-wrapper
+      flex-basis: 100%
+      border-top: 1px solid black
+      .btn
+        margin: 15px

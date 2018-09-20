@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { formatPrice } from "../helpers";
+import { formatPrice, cl } from "../helpers";
 
 class StoreItem extends Component {
   
   handleOrder = () => {
     this.props.addToBasket(this.props.index);
+    // cl(this.props.details);
   }
 
   render() {
     const { name, image, desc, price, status } = this.props.details;
     const isAvailable = status === 'available';
     return (
-      <li className="store-item">
+      <li className={"store-item " + (isAvailable ? "" : "disabled")}>
         {/* {this.props.no} */}
         <div className="store-item_box">
           <div className="store-item_img">

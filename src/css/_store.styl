@@ -1,0 +1,35 @@
+
+.store
+  border-right: 3px solid black
+  
+  &-list
+    margin: 15px 0
+  
+  &-item
+    margin-bottom: 10px
+    
+    &:not(:last-child)
+      padding-bottom: 10px;
+      border-bottom: 1px solid black;
+    
+    &.disabled &_img,
+    &.disabled &_info
+      opacity: .3
+      pointer-events: none
+    
+    &_img
+      flex: 1 1 30%
+    
+    &_info
+      flex: 1 1 70%
+      padding-left: 20px
+    
+    &_box
+      display: flex
+      flex-wrap: wrap
+    
+      .btn-wrapper
+        flex-basis: 100%
+        display: flex
+        justify-content: flex-end
+        margin-top: 10px

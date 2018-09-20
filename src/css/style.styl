@@ -1,87 +1,16 @@
-@import './_*.styl'
+@import './_normalize.styl'
+@import './_colors.styl'
+@import './_btn.styl'
+@import './_img.styl'
+@import './_title.styl'
+@import './_box.styl'
+@import './_basket.styl'
+@import './_store.styl'
 
 ul
   list-style: none outside none
   padding: 0
   margin: 0
 
-button
-  display: inline-block
-  border: 2px solid black
-  padding: 1rem 2rem
-  margin: 0
-  text-decoration: none
-  background-color: black
-  color: white
-  font-size: 1rem
-  line-height: 1
-  cursor: pointer
-  text-align: center
-  transition: background-color 175ms
-  &:not([disabled]):hover
-    background-color: white
-    color: black
-  &[disabled]
-    transform: translate(-230px,-80px) scale(1.5) rotate(-15deg)
-    cursor: not-allowed
-
-img 
-  display: block
-  width: 100%
-
-.box-main
-  display: flex
-  margin: 20px
-
-.store
-  border-right: 3px solid black
-  &-list
-    margin: 15px 0
-  &-item
-    margin-bottom: 10px
-    &:not(:last-child)
-      padding-bottom: 10px;
-      border-bottom: 1px solid black;
-    &_img
-      flex: 1 1 30%
-    &_info
-      flex: 1 1 70%
-      padding-left: 20px
-    &_box
-      display: flex
-      flex-wrap: wrap
-      .btn-wrapper
-        flex-basis: 100%
-        display: flex
-        justify-content: flex-end
-        margin-top: 10px
-
 .not-found h1
   text-align: center
-
-.box
-  display: flex
-  flex-wrap: wrap
-  width: 100%
-  > div
-    flex: 1 1 33.33%
-    border-bottom: 1px solid #000
-    &.bastet,
-    &.store
-      padding: 0 15px      
-    &.store
-      border-right: 3px solid black
-    &.btn-wrapper
-      flex-basis: 100%
-      border-top: 1px solid black
-      .btn
-        margin: 15px
-
-.title
-  margin-bottom: 0
-  &.main
-    font-size: 40px
-    text-align: center
-  &.item
-    display: flex
-    justify-content: space-between
