@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "./Header";
 import Basket from "./Basket";
 import StoreItem from "./StoreItem";
 import sampleItems from "../sample-items";
@@ -35,7 +36,8 @@ class App extends Component {
     return ( 
       <div className="box">
         <div className="store">
-          <h2 className="title main">Store</h2>
+          <Header headerName="Store" />
+          {/* <h2 className="title main">Store</h2> */}
           <hr />
           <ul className="store-list">
             {Object.keys(this.state.items).map((key, no) => (

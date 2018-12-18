@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import { formatPrice, cl } from "../helpers";
 
 class Basket extends Component {
@@ -15,7 +16,8 @@ class Basket extends Component {
     }, 0);
     return (
       <div className="basket">
-        <h2 className="title main">Basket</h2>
+        <Header headerName="Basket" />
+        {/* <h2 className="title main">Basket</h2> */}
         <hr/>
         <div className="basket-content">
           <ul className="basket-list">
