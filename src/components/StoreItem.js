@@ -5,15 +5,15 @@ class StoreItem extends Component {
   
   handleOrder = () => {
     this.props.addToBasket(this.props.index);
-    // cl(this.props.details);
   }
 
   render() {
+    // cl(this);
+    // cl(this.props);
     const { name, image, desc, price, status } = this.props.details;
     const isAvailable = status === 'available';
     return (
       <li className={"store-item " + (isAvailable ? "" : "disabled")}>
-        {/* {this.props.no} */}
         <div className="store-item_box">
           <div className="store-item_img">
             <img src={image} alt={name} />
@@ -26,7 +26,7 @@ class StoreItem extends Component {
           </div>
           <div className="btn-wrapper">
             <button className="btn btn-primary" disabled={!isAvailable} onClick={this.handleOrder}>
-              {isAvailable ? 'Add to card' : 'Sold out'}
+              {isAvailable ? "Add to card" : "Sold out"}
             </button>
           </div>
         </div>

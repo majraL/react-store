@@ -218,6 +218,10 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 20px;
 }
 .box > div {
@@ -269,6 +273,11 @@ img {
 }
 .store {
   border-right: 3px solid #000;
+}
+.store-name {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 40px;
 }
 .store-list {
   margin: 15px 0;
