@@ -1,2 +1,2 @@
 # react-store
-react practice
+react playground
