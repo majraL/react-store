@@ -8,8 +8,6 @@ class StoreItem extends Component {
   }
 
   render() {
-    // cl(this);
-    // cl(this.props);
     const { name, image, desc, price, status } = this.props.details;
     const isAvailable = status === 'available';
     return (

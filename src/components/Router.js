@@ -8,8 +8,9 @@ import NotFound from "./NotFound";
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={StorePicker} />
-      <Route path='/store/' component={App} />
+      <Route exact path="/" component={StorePicker} />
+      {/* :nešto - stvori u params objektu name key sa tim value-om koji se zada */}
+      <Route path="/store/:storeId" component={App} />
       {/* <Route path='/AdminPanel' component={AdminPanel} /> */}
       <Route component={NotFound} />
     </Switch>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ToDoItem from "./ToDoItem";
-import papiItems from '../papi-items';
+import papiItems from '../papi-items-object';
 import { cl } from '../helpers';
 
 class ToDoList extends Component {
@@ -31,20 +31,24 @@ class ToDoList extends Component {
     this.setState({ items: items });
   }
 
+  // TODO: fixat da resetira i kad nema ništa u localStorage
   resetList = () => {
     localStorage.removeItem("items");
     this.loadItems(this.getItems());
   }
 
   render() {
-    return (
-      <div>
-        {Object.keys(this.state.items).map((key) => (
-          <ToDoItem key={key} index={key} details={this.state.items[key]} updateCheckbox={this.updateCheckbox} />
+    return <div>
+        {Object.keys(this.state.items).map(key => (
+          <ToDoItem
+            key={key}
+            index={key}
+            details={this.state.items[key]}
+            updateCheckbox={this.updateCheckbox}
+          />
         ))}
         <button onClick={this.resetList}>resetiraj</button>
-      </div>
-    );
+      </div>;
   }
 }
 

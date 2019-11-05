@@ -24,7 +24,9 @@ class Mini extends Component {
   }
 
   decrement = () => {
-    this.setState({ count: this.state.count - 1 })
+    return this.setState(prevState => ({
+      count: prevState.count - 1
+    }));
   }
 
   render() {

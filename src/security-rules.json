@@ -1,0 +1,20 @@
+// pravila za firebase
+{
+  "rules": {
+    // won't let people delete an existing room.
+    // ukoliko baza postoji, ne možeš ju override-at
+    ".write": "!data.exists()",
+    // mogu svi čitati
+    ".read": true,
+    // second level oznaka sa $. pravila tko može šta raditi
+    "$store": {
+      // only the store owner can edit the data
+      ".write":
+      // autentikacija preko firebase-a pa imamo pristup "auth" varijabli
+      // druga provjera da tablica ne postoji ili da je owner stvarno taj user koji je logiran
+        "auth != null && (!data.exists() || data.child('owner').val() === auth.uid)",
+      // svi mogu čitati
+      ".read": true
+    }
+  }
+}

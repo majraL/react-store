@@ -10,12 +10,17 @@ button
   line-height: 1
   cursor: pointer
   text-align: center
-  transition: background-color 175ms
+  transition: background-color 75ms, color 75ms
   &:not([disabled]):hover
     background-color: white
     color: black
   &[disabled]
     background-color: red
     border: none
-    transform: translate(-230px,-80px) scale(1.5) rotate(-15deg)
+    transform: translate(-200px,-75px) scale(1.5) rotate(-15deg)
     cursor: not-allowed
+
+.btn-group
+  display: flex
+  .btn
+    flex: 1 1 100%

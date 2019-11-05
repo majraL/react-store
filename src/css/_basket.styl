@@ -11,7 +11,25 @@
   margin-top 5px
 
 .basket-item
-  &:not(:last-child)
-    padding-bottom 5px
-    border-bottom 1px solid black
-    margin-bottom 5px
+  position relative
+  
+  &:hover .remove
+    opacity: 1
+  
+  .remove
+    position: absolute
+    top: 50%
+    right: 0
+    width: 18px
+    height: 18px
+    display: inline-flex
+    justify-content: center
+    padding-top: 2px
+    font-size: 10px
+    opacity: 0
+    transform: translateY(-50%)
+    transition: background-color 75ms, color 75ms
+    &:hover
+      background-color: #000
+      color: #FFF
+      cursor: pointer

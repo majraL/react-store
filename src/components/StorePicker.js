@@ -9,7 +9,8 @@ class StorePicker extends Component {
     e.preventDefault();
     // 2. Get the text from that input
     const storeName = this.myInput.current.value;
-    // 3. Change the page to store/whatever-from-inpu
+    // 3. Change the page to store/whatever-from-inpu, 
+    // drugi parametar zapisujem u state od location-a
     this.props.history.push(`/store/${storeName}`, `${storeName}`);
   }
   render() {

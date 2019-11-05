@@ -173,8 +173,8 @@ button {
   line-height: 1;
   cursor: pointer;
   text-align: center;
-  -webkit-transition: background-color 175ms;
-  transition: background-color 175ms;
+  -webkit-transition: background-color 75ms, color 75ms;
+  transition: background-color 75ms, color 75ms;
 }
 button:not([disabled]):hover {
   background-color: #fff;
@@ -183,13 +183,24 @@ button:not([disabled]):hover {
 button[disabled] {
   background-color: #f00;
   border: none;
-  -webkit-transform: translate(-230px, -80px) scale(1.5) rotate(-15deg);
-          transform: translate(-230px, -80px) scale(1.5) rotate(-15deg);
+  -webkit-transform: translate(-200px, -75px) scale(1.5) rotate(-15deg);
+          transform: translate(-200px, -75px) scale(1.5) rotate(-15deg);
   cursor: not-allowed;
+}
+.btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.btn-group .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
 }
 img {
   display: block;
   width: 100%;
+  max-width: 500px;
 }
 .title {
   margin-bottom: 0;
@@ -222,7 +233,6 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 20px;
 }
 .box > div {
   -webkit-box-flex: 1;
@@ -231,9 +241,11 @@ img {
   border-bottom: 1px solid #000;
 }
 .box > div.basket,
-.box > div.store {
+.box > div.store,
+.box > div.inventory {
   padding: 0 15px;
 }
+.box > div.basket,
 .box > div.store {
   border-right: 3px solid #000;
 }
@@ -266,18 +278,47 @@ img {
   border-top: 5px solid #000;
   margin-top: 5px;
 }
-.basket-item:not(:last-child) {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #000;
-  margin-bottom: 5px;
+.basket-item {
+  position: relative;
+}
+.basket-item:hover .remove {
+  opacity: 1;
+}
+.basket-item .remove {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 2px;
+  font-size: 10px;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: background-color 75ms, color 75ms;
+  transition: background-color 75ms, color 75ms;
+}
+.basket-item .remove:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 .store {
   border-right: 3px solid #000;
 }
 .store-name {
   text-align: center;
-  text-transform: capitalize;
   margin-bottom: 40px;
+}
+.store-name > h1 {
+  margin-bottom: 5px;
+  text-transform: capitalize;
 }
 .store-list {
   margin: 15px 0;
@@ -322,6 +363,176 @@ img {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-top: 10px;
+}
+.item-edit {
+  margin-bottom: 20px;
+  border: 2px solid #000;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.item-edit input,
+.item-edit textarea,
+.item-edit select {
+  width: 33.33%;
+  padding: 10px;
+  line-height: 1;
+  font-size: 1.2rem;
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  background: #fff;
+}
+.item-edit input:focus,
+.item-edit textarea:focus,
+.item-edit select:focus {
+  outline: 0;
+  background: #fff2d9;
+}
+.item-edit textarea {
+  width: 100%;
+  resize: vertical;
+}
+.item-edit input:last-of-type {
+  width: 100%;
+}
+.item-edit button {
+  width: 100%;
+  border: 0;
+}
+.title.sub {
+  font-size: 30px;
+}
+.inventory .title.sub {
+  text-align: left;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+.meme-container {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+}
+.meme-container img {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+}
+.meme-container h2 {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  width: 100%;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 5px #000;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.meme-container h2.top {
+  top: 0;
+}
+.meme-container h2.bottom {
+  bottom: 0;
+}
+.dropzone {
+  position: relative;
+  display: inline-block;
+  min-width: 261px;
+  padding: 30px;
+  border: 1px dotted #000;
+  border-radius: 5px;
+  text-align: center;
+}
+.dropzone.dropzone-dragging {
+  background-color: #808080;
+}
+.dropzone .info {
+  font-size: 24px;
+  font-weight: 700;
+}
+.dropzone .input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.question {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  height: 61px;
+  max-height: 61px;
+  padding: 10px 15px;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+}
+.question-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px;
+}
+.question-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(50% - 7.5px);
+}
+.question-wrapper:nth-child(odd) {
+  margin-right: 15px;
+}
+.question-wrapper.correct {
+  opacity: 0.75;
+  pointer-events: none;
+}
+.answer-list {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  padding-left: 2rem;
+}
+.answer-list .answer {
+  list-style-type: lower-alpha;
+  width: 80%;
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  margin-bottom: 10px;
+}
+.answer-list .answer:hover {
+  cursor: pointer;
+  border-color: #000;
+}
+.answer-list .answer.correct {
+  background-color: rgba(135,211,124,0.5);
+}
+.answer-list .answer.wrong {
+  background-color: rgba(236,100,75,0.5);
 }
 ul {
   list-style: none outside none;
